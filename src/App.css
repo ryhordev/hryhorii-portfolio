@@ -37,6 +37,15 @@ h2 {
   padding: 0;
 }
 
+h3 {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   color: var(--text-color);
   background: var(--bg-color);
@@ -57,6 +66,7 @@ body {
 }
 
 .main {
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,8 +83,23 @@ body {
 }
 
 .main-text {
-  margin-top: 4rem;
-  margin-bottom: 30px;
+  margin-bottom: 16px;
+}
+
+.main-me-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 60%;
+  margin-bottom: 1rem;
+}
+
+.btn-header-svg {
+  background-color: transparent;
+}
+
+.btn-header-svg:hover {
+  background-color: transparent;
+  transform: scale(1.2);
 }
 
 .btn {
