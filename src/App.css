@@ -1,0 +1,119 @@
+:root {
+  --bg-color: #1f1f1f;
+  --primary-text: #141414;
+  --primary-bg: #ac99ea;
+  --primary-h1: #ac99ea;
+  --text-color: #f5f5f5;
+  --primary-bg-hover: #b9aaee;
+  color-scheme: dark;
+}
+
+h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 3.5rem;
+  line-height: 3.5rem;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+  -webkit-text-fill-color: var(--primary-h1);
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 1.75rem;
+  line-height: 2.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--text-color);
+  background: var(--bg-color);
+  padding: 0;
+  display: flex;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  height: 100dvh;
+  width: 100dvw;
+  font-size: 15px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+#root {
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.main-text {
+  margin-top: 4rem;
+  margin-bottom: 30px
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  white-space: normal;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.5rem;
+  text-decoration: none;
+  text-transform: none;
+  border: 1px solid rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
+.btn-primary {
+  color: var(--primary-text);
+  background-color: var(--primary-bg);
+  border-color: rgba(0, 0, 0, 0);
+  font-family: "Open Sans";
+  border-width: 2px;
+  border-style: solid;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-bg-hover);
+}
+
+.contact-button {
+  min-width: 107px;
+  padding: 4px 10px 10px;
+  font-weight: normal;
+  font-size: large;
+}
+
+.contact-button-container {
+  position: fixed;
+  bottom: 127px;
+  right: -42px;
+  z-index: 50;
+  transform: rotate(-90deg);
+  left: auto;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    display: inline-block;
+    width: auto;
+  }
+}
