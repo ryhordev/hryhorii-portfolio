@@ -76,6 +76,8 @@ body {
 .header {
   display: flex;
   justify-content: end;
+  gap: 1rem;
+  padding-top: 1rem;
 }
 
 .m-2 {
@@ -95,6 +97,7 @@ body {
 
 .btn-header-svg {
   background-color: transparent;
+  padding: 2px;
 }
 
 .btn-header-svg:hover {
