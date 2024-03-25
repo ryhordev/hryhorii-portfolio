@@ -5,6 +5,7 @@
   --primary-h1: #ac99ea;
   --text-color: #f5f5f5;
   --primary-bg-hover: #b9aaee;
+  --gradient-main: linear-gradient(128.87deg, #9780e5 14.05%, #e666cc 89.3%);
   color-scheme: dark;
 }
 
@@ -16,7 +17,10 @@ h1 {
   font-style: normal;
   text-decoration: none;
   text-transform: none;
-  -webkit-text-fill-color: var(--primary-h1);
+  -webkit-text-fill-color: rgba(0, 0, 0, 0);
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  background-clip: text;
   margin: 0;
   padding: 0;
 }
@@ -54,14 +58,23 @@ body {
 
 .main {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: end;
+}
+
+.m-2 {
+  margin: 2rem;
 }
 
 .main-text {
   margin-top: 4rem;
-  margin-bottom: 30px
+  margin-bottom: 30px;
 }
 
 .btn {
@@ -78,6 +91,7 @@ body {
   line-height: 1.5rem;
   text-decoration: none;
   text-transform: none;
+  width: fit-content;
   border: 1px solid rgba(0, 0, 0, 0);
   cursor: pointer;
 }
@@ -89,6 +103,7 @@ body {
   font-family: "Open Sans";
   border-width: 2px;
   border-style: solid;
+  width: fit-content;
 }
 
 .btn-primary:hover {
@@ -109,11 +124,4 @@ body {
   z-index: 50;
   transform: rotate(-90deg);
   left: auto;
-}
-
-@media (min-width: 768px) {
-  .btn {
-    display: inline-block;
-    width: auto;
-  }
 }
