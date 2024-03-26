@@ -1,0 +1,22 @@
+.main-text {
+  margin-bottom: 16px;
+}
+
+.main-me-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 60%;
+  margin-bottom: 1rem;
+}
+
+.main {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.main-button {
+    margin-top: 2rem;
+}

@@ -1,0 +1,15 @@
+#contact-btn {
+  min-width: 107px;
+  padding: 4px 10px 10px;
+  font-weight: normal;
+  font-size: large;
+}
+
+.contact-btn-container {
+  position: fixed;
+  bottom: 127px;
+  right: -42px;
+  z-index: 50;
+  transform: rotate(-90deg);
+  left: auto;
+}
