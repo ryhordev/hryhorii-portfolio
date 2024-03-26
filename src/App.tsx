@@ -1,7 +1,7 @@
 import { FC } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
-import { Welcome } from "./components/Welcome"
+import { Main } from "./components/Main"
 import { Header } from "./components/Header"
 import { ContactButton } from "./components/ContactButton"
 
@@ -12,7 +12,7 @@ export const App: FC = () => {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" Component={Welcome} />
+        <Route path="/" Component={Main} />
       </Routes>
       <ContactButton />
     </BrowserRouter>

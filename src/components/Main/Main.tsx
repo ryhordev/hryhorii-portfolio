@@ -5,7 +5,7 @@ import './index.css'
 
 const START_YEAR = 2022;
 
-export const Welcome: FC = () => {
+export const Main: FC = () => {
     const [expYears, setExpYears] = useState<number>();
 
     useEffect(() => {
