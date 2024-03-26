@@ -20,6 +20,8 @@
   width: 100%;
 }
 
-.main-button {
+.main-btn-container {
   margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
 }

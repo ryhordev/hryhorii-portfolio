@@ -10,7 +10,6 @@
 }
 
 .header-svg:hover {
-  fill: var(--primary-bg);
   transform: scale(1.2);
 }
 

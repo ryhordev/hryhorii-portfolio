@@ -20,7 +20,10 @@ export const Welcome: FC = () => {
             <h2>Full Stack Developer | .NET + React</h2>
             <h2>Over {expYears} years of professional experience</h2>
 
-            <button className="btn btn-primary main-button">Discover Projects & Articles</button>
+            <div className="main-btn-container">
+                <button className="btn">Projects</button>
+                <button className="btn">Articles</button>
+            </div>
         </div>
     );
 }
