@@ -3,6 +3,7 @@ import me from "../../assets/me.jpg";
 
 import './index.css'
 import { Link } from "react-router-dom";
+import { Button } from "../../components/buttons/Button";
 
 const START_YEAR = 2022;
 
@@ -22,8 +23,12 @@ export const Main: FC = () => {
             <h2>Over {expYears} years of professional experience</h2>
 
             <div className="main-btn-container">
-                <Link to='/projects' className="btn">Projects</Link>
-                <Link to='/articles' className="btn">Articles</Link>
+                <Link to='/projects'>
+                    <Button text="Projects" />
+                </Link>
+                <Link to='/articles'>
+                    <Button text="Articles" />
+                </Link>
             </div>
         </div>
     );

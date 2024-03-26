@@ -1,0 +1,20 @@
+.btn-primary {
+  -webkit-text-fill-color: var(--primary-text);
+  -webkit-background-clip: border-box;
+  background: var(--gradient-main-vise);
+  background-clip: border-box;
+  border: 1px solid var(--bg-color);
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  line-height: 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
+  background: var(--gradient-main);
+}

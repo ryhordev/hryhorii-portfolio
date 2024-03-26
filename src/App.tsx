@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 import { Main } from "./pages/Main"
 import { Header } from "./components/Header"
-import { ContactButton } from "./components/ContactButton"
+import { ContactButton } from "./components/buttons/ContactButton"
 
 import "./App.css"
 
