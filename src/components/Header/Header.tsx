@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { SvgButton } from "../buttons/SvgButton";
+import { SvgButton } from "../SvgButton";
 import './index.css';
 
 import linkedinLogo from '../../assets/linkedin.svg';

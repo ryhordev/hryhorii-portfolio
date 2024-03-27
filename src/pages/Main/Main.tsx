@@ -3,7 +3,7 @@ import me from "../../assets/me.jpg";
 
 import './index.css'
 import { Link } from "react-router-dom";
-import { Button } from "../../components/buttons/Button";
+import { Button } from "../../components/Button";
 import { Text } from "../../components/Text";
 
 const START_YEAR = 2022;

@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Main } from "./pages/Main"
 import { NotFound } from "./pages/NotFound"
 import { Header } from "./components/Header"
-import { StatisticButton } from "./components/buttons/StatisticButton"
+import { StatisticPanel } from "./components/StatisticPanel"
 
 import "./App.css"
 
@@ -16,7 +16,7 @@ export const App: FC = () => {
         <Route path="/" Component={Main} />
         <Route path="*" Component={NotFound} />
       </Routes>
-      <StatisticButton />
+      <StatisticPanel />
     </BrowserRouter>
   )
 }

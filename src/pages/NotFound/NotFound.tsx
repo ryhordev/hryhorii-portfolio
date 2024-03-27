@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Text } from "../../components/Text";
-import { Button } from "../../components/buttons/Button";
+import { Button } from "../../components/Button";
 import './index.css'
 
 export const NotFound: FC = () => {
