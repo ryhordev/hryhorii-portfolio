@@ -12,42 +12,7 @@
   color-scheme: dark;
 }
 
-h1 {
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 600;
-  font-size: 3.5rem;
-  line-height: 3.5rem;
-  font-style: normal;
-  text-decoration: none;
-  text-transform: none;
-  -webkit-text-fill-color: rgba(0, 0, 0, 0);
-  background: var(--gradient-main);
-  -webkit-background-clip: text;
-  background-clip: text;
-  margin: 0;
-  padding: 0;
-}
 
-h2 {
-  font-size: 1.75rem;
-  line-height: 2.5rem;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  text-decoration: none;
-  text-transform: none;
-  margin: 0;
-  padding: 0;
-}
-
-h3 {
-  font-family: "Open Sans", sans-serif;
-  font-style: normal;
-  text-decoration: none;
-  text-transform: none;
-  margin: 0;
-  padding: 0;
-}
 
 body {
   color: var(--text-color);
@@ -55,7 +20,7 @@ body {
   padding: 0;
   margin: 0;
   height: 100dvh;
-  width: 100dvw;
+  font-family: "Open Sans", sans-serif;
 }
 
 #root {
@@ -63,9 +28,11 @@ body {
 }
 
 a {
+  font-family: "Open Sans", sans-serif;
   text-decoration: none;
 }
 
 button {
   text-decoration: none;
+  font-family: "Open Sans", sans-serif;
 }

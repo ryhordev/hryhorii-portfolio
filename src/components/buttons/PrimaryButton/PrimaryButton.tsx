@@ -10,7 +10,7 @@ interface PrimaryButtonProps {
 
 export const PrimaryButton: FC<PrimaryButtonProps> = ({ id, text, className, onClick }) => {
     return (
-        <button id={id} className={`btn-primary ${className}`} onClick={onClick}>
+        <button id={id} className={`btn-primary ${className ?? ''}`} onClick={onClick}>
             {text}
         </button>
     );

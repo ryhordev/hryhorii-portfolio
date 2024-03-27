@@ -7,7 +7,7 @@ interface IPanelProps {
 
 export const Panel: FC<IPanelProps> = ({className}) => {
     return (
-        <div className={`panel ${className}`}>
+        <div className={`panel ${className ?? ''}`}>
 
         </div>
     );
