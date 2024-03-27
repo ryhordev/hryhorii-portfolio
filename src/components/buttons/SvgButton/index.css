@@ -1,0 +1,14 @@
+.svg-btn {
+  background-color: transparent;
+  padding: 2px;
+}
+
+.svg-btn > svg {
+  fill: var(--primary-bg);
+  height: 24px;
+  width: 24px;
+}
+
+.svg-btn > svg:hover {
+  transform: scale(1.2);
+}

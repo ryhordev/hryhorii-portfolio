@@ -1,4 +1,4 @@
-.btn {
+.default-btn {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   border-radius: 8px;
@@ -13,10 +13,30 @@
   cursor: pointer;
 }
 
-.btn:hover {
+.default-btn:hover {
   -webkit-text-fill-color: var(--primary-text);
   -webkit-background-clip: border-box;
   background-clip: border-box;
   background: var(--gradient-main);
   border-color: var(--bg-color);
+}
+
+.primary-btn {
+  -webkit-text-fill-color: var(--primary-text);
+  -webkit-background-clip: border-box;
+  background: var(--gradient-main-vise);
+  background-clip: border-box;
+  border: 1px solid var(--bg-color);
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
+  background: var(--gradient-main);
 }

@@ -4,16 +4,3 @@
   gap: 1rem;
   padding: 1rem 2rem;
 }
-
-.header-svg {
-  fill: var(--primary-bg);
-}
-
-.header-svg:hover {
-  transform: scale(1.2);
-}
-
-.btn-header-svg {
-  background-color: transparent;
-  padding: 2px;
-}

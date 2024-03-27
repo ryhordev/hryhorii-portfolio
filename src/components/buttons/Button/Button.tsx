@@ -6,11 +6,12 @@ interface ButtonProps {
     text: string;
     onClick?: () => void;
     className?: string;
+    variant?: 'primary' | 'default'
 }
 
-export const Button: FC<ButtonProps> = ({ id, text, className, onClick }) => {
+export const Button: FC<ButtonProps> = ({ id, text, className, variant, onClick }) => {
     return (
-        <button id={id} className={`btn ${className ?? ''}`} onClick={onClick}>
+        <button id={id} className={`${variant ?? 'default'}-btn ${className ?? ''}`} onClick={onClick}>
             {text}
         </button>
     );

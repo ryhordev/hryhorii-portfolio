@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import './index.css'
 import { Panel } from "../../Panel";
-import { PrimaryButton } from "../PrimaryButton";
+import { Button } from "../Button";
 
 export const ContactButton: FC = () => {
     const [isPanelOpen, setPanelOpen] = useState<boolean>(false);
@@ -9,10 +9,11 @@ export const ContactButton: FC = () => {
     return (
         <>
             <div className="contact-btn-container">
-                <PrimaryButton
+                <Button
                     id="contact-btn"
                     text="Contact"
                     onClick={() => setPanelOpen(true)}
+                    variant="primary"
                 />
             </div>
 

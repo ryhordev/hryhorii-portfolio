@@ -16,6 +16,7 @@ export const Main: FC = () => {
     }, []);
 
     return (
+        expYears &&
         <div className="main">
             <img src={me} className="main-me-image" />
             <Text text="Hryhorii Petrenko" variant='large' className="main-text" />
