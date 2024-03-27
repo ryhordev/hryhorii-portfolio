@@ -11,6 +11,10 @@
   padding: 1rem;
 }
 
+.main-btn {
+  width: 100px;
+}
+
 .main {
   position: absolute;
   top: 50%;
@@ -28,9 +32,11 @@
   margin-top: 2rem;
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-@media (max-height: 500px) {
+@media (max-height: 550px) {
   .main {
     top: 0;
     transform: translate(-50%);

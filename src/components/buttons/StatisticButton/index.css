@@ -1,0 +1,49 @@
+.statistic-btn {
+  min-height: 107px;
+  padding: 10px 4px;
+  font-weight: normal;
+  font-size: large;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  border-left: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.statistic-btn-container {
+  z-index: 2;
+  position: absolute;
+  transform: translate(-100%);
+  bottom: 130px;
+}
+
+.panel-container {
+  transition: all 0.3s;
+  display: flex;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  height: 100dvh;
+  background: var(--bg-color);
+  max-width: 600px;
+}
+
+#panel-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.45);
+  pointer-events: auto;
+}
+
+.panel-open {
+  width: 40%;
+}
+
+@media (max-width: 600px) {
+  .panel-open {
+    width: 80%;
+  }
+}
