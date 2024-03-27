@@ -9,7 +9,7 @@ export const NotFound: FC = () => {
         <div className="main not-found-page">
             <Text text="Even the things we love break sometimes" variant="large" />
             <Link to='/'>
-                <Button text="Home"/>
+                <Button text="Get me out"/>
             </Link>
         </div>
     );

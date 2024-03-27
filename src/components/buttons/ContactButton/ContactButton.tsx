@@ -10,7 +10,7 @@ export const ContactButton: FC = () => {
         <>
             <div className="contact-btn-container">
                 <Button
-                    id="contact-btn"
+                    className="contact-btn"
                     text="Contact"
                     onClick={() => setPanelOpen(true)}
                     variant="primary"
