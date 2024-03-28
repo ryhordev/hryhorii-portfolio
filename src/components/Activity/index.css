@@ -1,5 +1,4 @@
-.activity-container {
-  max-width: 100%;
+.activity-table-container {
   overflow-y: hidden;
   overflow-x: auto;
   padding-bottom: 4px;
@@ -8,10 +7,30 @@
   gap: 1rem;
 }
 
+
+.activity-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 100%;
+  width: fit-content;
+}
+
 .example {
   display: flex;
-  justify-content: center;
   gap: 2px;
+  align-items: center;
+}
+
+.legend {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.legend-description {
+  font-size: 12px;
+  color: gray;
 }
 
 .example-lvl-container {

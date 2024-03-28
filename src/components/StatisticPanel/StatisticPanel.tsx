@@ -19,6 +19,7 @@ export const StatisticPanel: FC = () => {
     const onClick = async () => {
         if (isPanelOpen) {
             document.getElementById("panel-overlay")?.remove();
+            document.body.classList.remove("body-overflow-hidden");
         }
         else {
             if (!isFetched) {
@@ -27,6 +28,7 @@ export const StatisticPanel: FC = () => {
 
             const el = document.createElement('div')
             el.id = "panel-overlay";
+            document.body.classList.add("body-overflow-hidden");
             document.body.append(el);
         }
 
@@ -69,22 +71,13 @@ export const StatisticPanel: FC = () => {
             <div className="panel-content">
                 {isPanelOpen && stats &&
                     <div className="panel-stats">
-                        <div className="panel-activity">
-                            <Text
-                                text="Git Activity"
-                                variant="large"
-                                className="panel-stats-text"
-                            />
-                            <MemorizedActivity data={stats.git} />
-                        </div>
-                        <div className="panel-activity">
-                            <Text
-                                text="Article Activity"
-                                variant="large"
-                                className="panel-stats-text"
-                            />
-                            <MemorizedActivity data={stats.article} />
-                        </div>
+                        <Text
+                            text={`My stats for ${new Date().getFullYear()}`}
+                            variant="large"
+                            className="panel-stats-text"
+                        />
+                        <MemorizedActivity data={stats.git} description='Git events (commits, contributions, etc.)' />
+                        <MemorizedActivity data={stats.article} description='Articles published' />
                     </div>
                 }
 
