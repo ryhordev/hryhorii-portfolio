@@ -37,7 +37,7 @@
 }
 
 .fill-lvl2 {
-  background: var(--lvl-2); 
+  background: var(--lvl-2);
 }
 
 .fill-lvl3 {
@@ -66,4 +66,9 @@
 .week-td {
   width: 30px;
   position: relative;
+}
+
+.activity-month-span {
+  font-size: 12px;
+  font-weight: normal;
 }

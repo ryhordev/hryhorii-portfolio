@@ -36,19 +36,41 @@ const Activity: FC<IActivityProps> = ({ data }) => {
 
     const dataValues = new Map<number, number>([...data.entries()].map(([k, v]) => [k.setHours(0, 0, 0, 0).valueOf(), v]));
 
-    while (date <= new Date()) {
+    const currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0);
+
+    while (date <= currentDate) {
         const value = dataValues.get(date.valueOf()) ?? 0;
         const lvl = value > 3 ? 3 : value;
         const element = <td key={date.toISOString()} className={`activity-day fill-lvl${lvl}`} aria-label={date.toDateString()}></td>;
+
         daysOfWeek[date.getDay()][1].push(element);
+
         date.setDate(date.getDate() + 1);
     }
+
+    const currentMonth = currentDate.getDate() > 15 ? currentDate.getMonth() + 1 : currentDate.getMonth();
+    const shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    const monthElements = Array.from({ length: 12 }, (_, index) => {
+        const monthIndex = (currentMonth + index) % 12;
+        const monthName = shortMonths[monthIndex];
+
+        return (
+            <th colSpan={index % 2 === 0 ? 4 : 5} key={`month-${monthIndex}`}>
+                <span className="activity-month-span">{monthName}</span>
+            </th>
+        );
+    });
 
     return (
         <>
             <div className="activity-container">
                 <table className="activity-table">
-                    <thead></thead>
+                    <thead>
+                        <th colSpan={1} />
+                        {monthElements}
+                    </thead>
                     <tbody>
                         <tr className="activity-day-row">{sundays}</tr>
                         <tr className="activity-day-row">{mondays}</tr>
