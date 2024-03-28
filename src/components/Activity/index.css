@@ -3,10 +3,45 @@
   overflow-y: hidden;
   overflow-x: auto;
   padding-bottom: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.example {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+
+.example-lvl-container {
+  height: 10px;
+  width: 10px;
+  opacity: 0.8;
+  margin-top: 3px;
+}
+
+.example-lvl-span {
+  color: gray;
+  font-size: 12px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 .fill-lvl0 {
-  background: var(--gray);
+  background: var(--lvl-0);
+}
+
+.fill-lvl1 {
+  background: var(--lvl-1);
+}
+
+.fill-lvl2 {
+  background: var(--lvl-2); 
+}
+
+.fill-lvl3 {
+  background: var(--lvl-3);
 }
 
 .activity-day-row {

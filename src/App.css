@@ -5,7 +5,11 @@
   --text-color: #f5f5f5;
   --gradient-color-1: #9780e5;
   --gradient-color-2: #e666cc;
-  --gray: #7a7a7a;
+  
+  --lvl-0: #7a7a7a;
+  --lvl-1: #6654a0;
+  --lvl-2: #9780e5;
+  --lvl-3: #e167cd;
   --gradient-main: linear-gradient(
     128.87deg,
     var(--gradient-color-1) 14.05%,

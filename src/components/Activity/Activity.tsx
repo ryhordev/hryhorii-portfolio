@@ -37,27 +37,39 @@ const Activity: FC<IActivityProps> = ({ data }) => {
     const dataValues = new Map<number, number>([...data.entries()].map(([k, v]) => [k.setHours(0, 0, 0, 0).valueOf(), v]));
 
     while (date <= new Date()) {
-        const value = dataValues.get(date.valueOf());
-        const element = <td key={date.toISOString()} className={`activity-day fill-lvl${value ?? 0}`} aria-label={date.toDateString()}></td>;
+        const value = dataValues.get(date.valueOf()) ?? 0;
+        const lvl = value > 3 ? 3 : value;
+        const element = <td key={date.toISOString()} className={`activity-day fill-lvl${lvl}`} aria-label={date.toDateString()}></td>;
         daysOfWeek[date.getDay()][1].push(element);
         date.setDate(date.getDate() + 1);
     }
 
     return (
-        <div className="activity-container">
-            <table className="activity-table">
-                <thead></thead>
-                <tbody>
-                    <tr className="activity-day-row">{sundays}</tr>
-                    <tr className="activity-day-row">{mondays}</tr>
-                    <tr className="activity-day-row">{tuesdays}</tr>
-                    <tr className="activity-day-row">{wednesdays}</tr>
-                    <tr className="activity-day-row">{thursdays}</tr>
-                    <tr className="activity-day-row">{fridays}</tr>
-                    <tr className="activity-day-row">{saturdays}</tr>
-                </tbody>
-            </table>
-        </div>
+        <>
+            <div className="activity-container">
+                <table className="activity-table">
+                    <thead></thead>
+                    <tbody>
+                        <tr className="activity-day-row">{sundays}</tr>
+                        <tr className="activity-day-row">{mondays}</tr>
+                        <tr className="activity-day-row">{tuesdays}</tr>
+                        <tr className="activity-day-row">{wednesdays}</tr>
+                        <tr className="activity-day-row">{thursdays}</tr>
+                        <tr className="activity-day-row">{fridays}</tr>
+                        <tr className="activity-day-row">{saturdays}</tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div className="example">
+                <span className="example-lvl-span mr-2">Less</span>
+                <div className="example-lvl-container fill-lvl0" />
+                <div className="example-lvl-container fill-lvl1" />
+                <div className="example-lvl-container fill-lvl2" />
+                <div className="example-lvl-container fill-lvl3" />
+                <span className="example-lvl-span ml-2">More</span>
+            </div>
+        </>
     );
 }
 

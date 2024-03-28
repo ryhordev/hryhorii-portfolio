@@ -50,6 +50,8 @@ export const StatisticPanel: FC = () => {
     const getArticleStats = async (): Promise<Map<Date, number>> => {
         const map = new Map<Date, number>();
         map.set(new Date(), 10);
+        map.set(new Date(new Date().setDate(new Date().getDate() - 1)), 1);
+        map.set(new Date(new Date().setDate(new Date().getDate() - 2)), 2);
         return map;
     }
 
