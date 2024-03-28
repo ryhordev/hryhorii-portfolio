@@ -5,11 +5,11 @@
   --text-color: #f5f5f5;
   --gradient-color-1: #9780e5;
   --gradient-color-2: #e666cc;
-  
-  --lvl-0: #87848494;
-  --lvl-1: #6654a0;
-  --lvl-2: #9780e5;
-  --lvl-3: #e167cd;
+  --lvl-0: #504e4e;
+  --lvl-1: #584986;
+  --lvl-2: #7f6cbd;
+  --lvl-3: #ba58aa;
+
   --gradient-main: linear-gradient(
     128.87deg,
     var(--gradient-color-1) 14.05%,
@@ -50,3 +50,10 @@ button {
   text-decoration: none;
   font-family: "Open Sans", sans-serif;
 }
+
+/*
+  --lvl-0: #87848494;
+  --lvl-1: #6654a0;
+  --lvl-2: #9780e5;
+  --lvl-3: #e167cd;
+*/
