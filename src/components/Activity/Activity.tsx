@@ -72,7 +72,9 @@ const Activity: FC<IActivityProps> = ({ data, description }) => {
             </div>
 
             <div className="legend">
-                <div><span className="legend-description">{description}</span></div>
+                <div className="legend-desc-container">
+                    <span className="legend-description">{description}</span>
+                </div>
                 <div className="example">
                     <span className="example-lvl-span mr-2">Less</span>
                     <div className="example-lvl-container fill-lvl0" />
