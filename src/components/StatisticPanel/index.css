@@ -42,7 +42,7 @@
   width: 40%;
 }
 
-.loading {
+.panel-loading {
   width: 100%;
   height: 100%;
   display: flex;
@@ -53,16 +53,29 @@
 }
 
 .panel-loading-text {
-  -webkit-text-fill-color: rgba(0, 0, 0, 0);
-  background: var(--gradient-main);
-  -webkit-background-clip: text;
-  background-clip: text;
+  font-size: 2rem;
 }
 
 .panel-content {
   height: 100%;
   width: 100%;
-  margin: 1rem;
+  margin: 2rem;
+}
+
+.panel-stats-text {
+  font-size: 2rem;
+}
+
+.panel-activity {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.panel-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 @media (max-width: 600px) {

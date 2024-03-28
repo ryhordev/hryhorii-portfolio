@@ -1,21 +1,21 @@
 import { FC, useEffect, useState } from "react";
 import { Button } from "../Button";
-import { IGraphicProps } from "../Graphic";
+import { MemorizedActivity } from "../Activity";
+import { Spinner } from "../Spinner";
 import { Text } from "../Text";
 
 import './index.css'
-import { Spinner } from "../Spinner";
 
-interface IStats {
-    git: IGraphicProps;
-    article: IGraphicProps;
+interface IPanelStats {
+    git: Map<Date, number>;
+    article: Map<Date, number>;
 }
 
 export const StatisticPanel: FC = () => {
     const [isPanelOpen, setPanelOpen] = useState<boolean>(false);
     const [openPercentage, setOpenPercentage] = useState<string>('');
     const [isFetched, setIsFetched] = useState<boolean>(false);
-    const [stats, setStats] = useState<IStats>();
+    const [stats, setStats] = useState<IPanelStats>();
 
     useEffect(() => {
         setOpenPercentage(window.screen.width < 600 ? '80%' : '40%');
@@ -47,14 +47,13 @@ export const StatisticPanel: FC = () => {
 
     const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-    const getGitStats = async (): Promise<IGraphicProps> => {
+    const getGitStats = async (): Promise<Map<Date, number>> => {
         await delay(2000);
-        console.log('done')
-        return {}
+        return new Map<Date, number>();
     }
 
-    const getArticleStats = async (): Promise<IGraphicProps> => {
-        return {};
+    const getArticleStats = async (): Promise<Map<Date, number>> => {
+        return new Map<Date, number>();
     }
 
     return (
@@ -62,7 +61,7 @@ export const StatisticPanel: FC = () => {
             <div className="statistic-btn-container">
                 <Button
                     className="statistic-btn"
-                    text="Statistics"
+                    text="Activity"
                     onClick={onClick}
                     variant="primary"
                 />
@@ -70,17 +69,32 @@ export const StatisticPanel: FC = () => {
 
             <div className="panel-content">
                 {isPanelOpen && stats &&
-                    <div>
-                        Stats
+                    <div className="panel-stats">
+                        <div className="panel-activity">
+                            <Text
+                                text="Git Activity"
+                                variant="large"
+                                className="panel-stats-text"
+                            />
+                            <MemorizedActivity data={stats.git} />
+                        </div>
+                        <div className="panel-activity">
+                            <Text
+                                text="Article Activity"
+                                variant="large"
+                                className="panel-stats-text"
+                            />
+                            <MemorizedActivity data={stats.article} />
+                        </div>
                     </div>
                 }
 
                 {isPanelOpen && !isFetched &&
-                    <div className="loading">
-                        <Spinner variant="large"/>
+                    <div className="panel-loading">
+                        <Spinner variant="large" />
                         <Text
                             text="Loading, please wait"
-                            variant="medium"
+                            variant="large"
                             className="panel-loading-text"
                         />
                     </div>
