@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { Button } from "../Button";
 import { MemorizedActivity } from "../Activity";
 import { Spinner } from "../Spinner";
@@ -13,13 +13,8 @@ interface IPanelStats {
 
 export const StatisticPanel: FC = () => {
     const [isPanelOpen, setPanelOpen] = useState<boolean>(false);
-    const [openPercentage, setOpenPercentage] = useState<string>('');
     const [isFetched, setIsFetched] = useState<boolean>(false);
     const [stats, setStats] = useState<IPanelStats>();
-
-    useEffect(() => {
-        setOpenPercentage(window.screen.width < 600 ? '80%' : '40%');
-    }, [])
 
     const onClick = async () => {
         if (isPanelOpen) {
@@ -53,11 +48,13 @@ export const StatisticPanel: FC = () => {
     }
 
     const getArticleStats = async (): Promise<Map<Date, number>> => {
-        return new Map<Date, number>();
+        const map = new Map<Date, number>();
+        map.set(new Date(), 10);
+        return map;
     }
 
     return (
-        <div className={`panel-container`} style={{ width: isPanelOpen ? openPercentage : '0' }}>
+        <div className={`panel-container ${isPanelOpen ? 'panel-open' : 'panel-closed'}`}>
             <div className="statistic-btn-container">
                 <Button
                     className="statistic-btn"

@@ -1,34 +1,33 @@
 .activity-container {
   max-width: 100%;
   overflow-y: hidden;
-  padding-bottom: .3rem;
   overflow-x: auto;
+  padding-bottom: 4px;
 }
 
-.activity-table {
-  border-spacing: 3px;
+.fill-lvl0 {
+  background: var(--gray);
 }
 
 .activity-day-row {
   height: 10px;
 }
 
-.fill {
-  background: #7a7a7a;
+.activity-table {
+  width: max-content;
 }
 
 .activity-day {
   width: 10px;
 }
 
-.day-name {
+.week-span {
+  position: absolute;
   font-size: 12px;
+  bottom: -3px;
 }
 
-.header-month {
-    text-align: left;
-}
-
-.month-name {
-  font-size: 12px;
+.week-td {
+  width: 30px;
+  position: relative;
 }

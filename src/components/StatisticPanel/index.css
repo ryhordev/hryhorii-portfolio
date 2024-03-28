@@ -19,7 +19,7 @@
 
 .panel-container {
   transition: all 0.3s;
-  display: flex;
+  display: block;
   position: fixed;
   right: 0;
   top: 0;
@@ -27,7 +27,8 @@
   z-index: 3;
   height: 100dvh;
   background: var(--bg-color);
-  max-width: 600px;
+  max-width: 750px;
+  width: 50%;
 }
 
 #panel-overlay {
@@ -39,7 +40,7 @@
 }
 
 .panel-open {
-  width: 40%;
+  width: 50%;
 }
 
 .panel-loading {
@@ -50,6 +51,7 @@
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+  text-align: center;
 }
 
 .panel-loading-text {
@@ -57,13 +59,19 @@
 }
 
 .panel-content {
-  height: 100%;
-  width: 100%;
   margin: 2rem;
+  height: 100%;
 }
 
 .panel-stats-text {
   font-size: 2rem;
+}
+
+.panel-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  height: 100%;
 }
 
 .panel-activity {
@@ -72,13 +80,11 @@
   gap: 1rem;
 }
 
-.panel-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+.panel-closed {
+  width: 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
   .panel-open {
     width: 80%;
   }
