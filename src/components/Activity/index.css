@@ -19,6 +19,7 @@
   width: 10px;
   opacity: 0.8;
   margin-top: 3px;
+  border-radius: 1px;
 }
 
 .example-lvl-span {
@@ -54,6 +55,7 @@
 
 .activity-day {
   width: 10px;
+  border-radius: 1px;
 }
 
 .week-span {
