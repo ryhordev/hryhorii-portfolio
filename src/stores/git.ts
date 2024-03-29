@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { getFirstDate } from '../utils';
 
 interface IGitRepo {
   id: number;
@@ -26,40 +27,32 @@ export const useGitStore = create<GitState>()((set) => ({
     const init: RequestInit = { headers: { "Authorization": `Bearer ${import.meta.env.VITE_GIT_TOKEN}` } };
     const gitRepos: IGitRepo[] = await (await fetch('https://api.github.com/users/ryhordev/repos', init)).json();
 
-    // HACK: 
-    const firstJanuaryPrevYear = new Date();
-    firstJanuaryPrevYear.setFullYear(firstJanuaryPrevYear.getFullYear() - 1);
-    firstJanuaryPrevYear.setMonth(0);
-    firstJanuaryPrevYear.setDate(1);
-    firstJanuaryPrevYear.setHours(0, 0, 0, 0);
+    const sinceDate = getFirstDate();
+    const isoDate = sinceDate.toISOString();
 
-    const isoDate = firstJanuaryPrevYear.toISOString();
-
-    const filteredRepos = gitRepos.filter(r => new Date(r.pushed_at).valueOf() >= firstJanuaryPrevYear.valueOf());
+    const filteredRepos = gitRepos.filter(r => new Date(r.pushed_at).valueOf() >= sinceDate.valueOf());
     const requests = filteredRepos.map(r => {
       const url = r.commits_url.replace('{/sha}', '')
       return fetch(`${url}?since=${isoDate}`, init)
     });
 
     const responses = await Promise.all(requests)
-
     const gitStats = new Map<number, number>();
 
-    responses.forEach(async r => {
+    await Promise.all(responses.map(async (r) => {
       if (r.status === 200) {
         const body: any[] = await r.json();
-        body.forEach(c => {
+        body.forEach((c) => {
           const commitDate = new Date(c.commit.committer.date);
           commitDate.setHours(0, 0, 0, 0);
           const dataValue = commitDate.valueOf();
           const value = (gitStats.get(dataValue) ?? 0) + 1;
-          gitStats.set(dataValue, value)
-        })
-      }
-      else {
+          gitStats.set(dataValue, value);
+        });
+      } else {
         console.error(r);
       }
-    });
+    }));
 
     set({ gitStats, isGitDataFetched: true, gitRepos })
   },

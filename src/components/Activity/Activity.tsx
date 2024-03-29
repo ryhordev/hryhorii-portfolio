@@ -1,5 +1,6 @@
 import { FC } from "react";
 import React from "react";
+import { getFirstDate } from "../../utils";
 import './index.css';
 
 
@@ -19,26 +20,21 @@ const Activity: FC<IActivityProps> = ({ data, description }) => {
 
     const daysOfWeek: JSX.Element[][] = [sundays, mondays, tuesdays, wednesdays, thursdays, fridays, saturdays];
 
-    const nextYearFirstDate = new Date();
-    nextYearFirstDate.setFullYear(nextYearFirstDate.getFullYear() + 1);
-    nextYearFirstDate.setMonth(0);
-    nextYearFirstDate.setDate(1);
-    nextYearFirstDate.setHours(0, 0, 0, 0);
+    const firstDate = getFirstDate();
+    let lastDate = new Date(firstDate);
+    lastDate.setFullYear(lastDate.getFullYear() + 1);
 
-    let date = new Date(nextYearFirstDate);
-    date.setFullYear(date.getFullYear() - 1);
-
-    for (let i = 0; i < date.getDay(); i++) {
+    for (let i = 0; i < firstDate.getDay(); i++) {
         daysOfWeek[i].push(<td key={`${i}-empty`} className="activity-day"></td>);
     }
 
-    while (date <= nextYearFirstDate) {
-        const value = data.get(date.valueOf()) ?? 0;
+    while (firstDate <= lastDate) {
+        const value = data.get(firstDate.valueOf()) ?? 0;
         const lvl = value > 3 ? 3 : value;
-        const element = <td key={date.toISOString()} className={`activity-day fill-lvl${lvl}`} aria-label={date.toDateString()} aria-valuetext={`${value}`}></td>;
+        const element = <td key={firstDate.toISOString()} className={`activity-day fill-lvl${lvl}`} aria-label={firstDate.toDateString()} aria-valuetext={`${value}`}></td>;
 
-        daysOfWeek[date.getDay()].push(element);
-        date.setDate(date.getDate() + 1);
+        daysOfWeek[firstDate.getDay()].push(element);
+        firstDate.setDate(firstDate.getDate() + 1);
     }
 
     const shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
