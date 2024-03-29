@@ -1,20 +1,17 @@
 import { FC, useState } from "react";
 import { Button } from "../Button";
 import { MemorizedActivity } from "../Activity";
-import { Spinner } from "../Spinner";
 import { Text } from "../Text";
+import { Spinner } from "../Spinner";
+import { useGitStore } from "../../stores/git";
+import { useArticleStore } from "../../stores/article";
 
 import './index.css'
 
-interface IPanelStats {
-    git: Map<Date, number>;
-    article: Map<Date, number>;
-}
-
 export const StatisticPanel: FC = () => {
     const [isPanelOpen, setPanelOpen] = useState<boolean>(false);
-    const [isFetched, setIsFetched] = useState<boolean>(false);
-    const [stats, setStats] = useState<IPanelStats>();
+    const { gitStats, isGitDataFetched } = useGitStore();
+    const { articlesStats, isArticleDataFetched } = useArticleStore();
 
     const onClick = async () => {
         if (isPanelOpen) {
@@ -22,10 +19,6 @@ export const StatisticPanel: FC = () => {
             document.body.classList.remove("body-overflow-hidden");
         }
         else {
-            if (!isFetched) {
-                await fetchStatistic();
-            }
-
             const el = document.createElement('div')
             el.id = "panel-overlay";
             document.body.classList.add("body-overflow-hidden");
@@ -33,28 +26,6 @@ export const StatisticPanel: FC = () => {
         }
 
         setPanelOpen(!isPanelOpen)
-    }
-
-    const fetchStatistic = async () => {
-        Promise.all([getGitStats(), getArticleStats()]).then(v => {
-            setStats({ git: v[0], article: v[1] })
-            setIsFetched(true)
-        })
-    }
-
-    const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-
-    const getGitStats = async (): Promise<Map<Date, number>> => {
-        await delay(2000);
-        return new Map<Date, number>();
-    }
-
-    const getArticleStats = async (): Promise<Map<Date, number>> => {
-        const map = new Map<Date, number>();
-        map.set(new Date(), 10);
-        map.set(new Date(new Date().setDate(new Date().getDate() - 1)), 1);
-        map.set(new Date(new Date().setDate(new Date().getDate() - 2)), 2);
-        return map;
     }
 
     return (
@@ -69,28 +40,27 @@ export const StatisticPanel: FC = () => {
             </div>
 
             <div className="panel-content">
-                {isPanelOpen && stats &&
-                    <div className="panel-stats">
-                        <Text
-                            text={`My stats for ${new Date().getFullYear()}`}
-                            variant="large"
-                            className="panel-stats-text"
-                        />
-                        <MemorizedActivity data={stats.git} description='Git events (commits, contributions, etc.)' />
-                        <MemorizedActivity data={stats.article} description='Articles published' />
-                    </div>
-                }
-
-                {isPanelOpen && !isFetched &&
-                    <div className="panel-loading">
-                        <Spinner variant="large" />
-                        <Text
-                            text="Loading, please wait"
-                            variant="large"
-                            className="panel-loading-text"
-                        />
-                    </div>
-                }
+                {isPanelOpen && (
+                    isGitDataFetched && isArticleDataFetched ?
+                        <div className="panel-stats">
+                            <Text
+                                text={`My stats for ${new Date().getFullYear()}`}
+                                variant="large"
+                                className="panel-stats-text"
+                            />
+                            <MemorizedActivity data={gitStats} description='Git events (commits, contributions, etc.)' />
+                            <MemorizedActivity data={articlesStats} description='Articles published' />
+                        </div>
+                        :
+                        <div className="panel-loading">
+                            <Spinner variant="large" />
+                            <Text
+                                text="Loading, please wait"
+                                variant="large"
+                                className="panel-loading-text"
+                            />
+                        </div>
+                )}
             </div>
         </div>
     );
