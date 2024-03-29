@@ -4,7 +4,7 @@ import './index.css';
 
 
 interface IActivityProps {
-    data: Map<Date, number>;
+    data: Map<number, number>;
     description: string;
 }
 
@@ -32,12 +32,10 @@ const Activity: FC<IActivityProps> = ({ data, description }) => {
         daysOfWeek[i].push(<td key={`${i}-empty`} className="activity-day"></td>);
     }
 
-    const dataValues = new Map<number, number>([...data.entries()].map(([k, v]) => [k.setHours(0, 0, 0, 0).valueOf(), v]));
-
     while (date <= nextYearFirstDate) {
-        const value = dataValues.get(date.valueOf()) ?? 0;
+        const value = data.get(date.valueOf()) ?? 0;
         const lvl = value > 3 ? 3 : value;
-        const element = <td key={date.toISOString()} className={`activity-day fill-lvl${lvl}`} aria-label={date.toDateString()}></td>;
+        const element = <td key={date.toISOString()} className={`activity-day fill-lvl${lvl}`} aria-label={date.toDateString()} aria-valuetext={`${value}`}></td>;
 
         daysOfWeek[date.getDay()].push(element);
         date.setDate(date.getDate() + 1);

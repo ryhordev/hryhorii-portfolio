@@ -6,7 +6,7 @@ interface IArticle {
 
 interface ArticleState {
   articles: IArticle[];
-  articlesStats: Map<Date, number>;
+  articlesStats: Map<number, number>;
   isArticleDataFetched: boolean;
 
   fetchArticleData: () => Promise<void>
@@ -14,10 +14,10 @@ interface ArticleState {
 
 export const useArticleStore = create<ArticleState>()((set) => ({
   articles: [],
-  articlesStats: new Map<Date, number>(),
+  articlesStats: new Map<number, number>(),
   isArticleDataFetched: false,
 
   async fetchArticleData() {
-    set({ articlesStats: new Map([[new Date(), 10]]), isArticleDataFetched: true })
+    set({ articlesStats: new Map(), isArticleDataFetched: true })
   },
 }))

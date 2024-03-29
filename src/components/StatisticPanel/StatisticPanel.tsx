@@ -48,7 +48,7 @@ export const StatisticPanel: FC = () => {
                                 variant="large"
                                 className="panel-stats-text"
                             />
-                            <MemorizedActivity data={gitStats} description='Git events (commits, contributions, etc.)' />
+                            <MemorizedActivity data={gitStats} description='Git commits' />
                             <MemorizedActivity data={articlesStats} description='Articles published' />
                         </div>
                         :
